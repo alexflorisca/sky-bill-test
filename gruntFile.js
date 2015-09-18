@@ -54,13 +54,13 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     // Add source maps
-                    transform: [["babelify", { "stage": 0 }]],
+                    transform: ["babelify"],
                     browserifyOptions: {
                         debug: true
                     }
                 },
                 src: [
-                    'js/es5/**/*.js'
+                    'js/**/*.js'
                 ],
                 dest: 'static/js/build.js'
             },
