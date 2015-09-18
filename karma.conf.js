@@ -60,7 +60,7 @@ module.exports = function(config) {
 
         browserify: {
             debug: true,
-            transform: []
+            transform: ['babelify']
         },
 
         // Continuous Integration mode

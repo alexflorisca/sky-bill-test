@@ -66,6 +66,7 @@ module.exports = function(grunt) {
             },
             prod: {
                 options: {
+                    transform: ["babelify"],
                     browserifyOptions: {
                         debug: false
                     }
@@ -122,7 +123,7 @@ module.exports = function(grunt) {
 
             js: {
                 files: ['js/main.js', 'js/modules/*.js', 'gruntFile.js'],
-                tasks: ['clean', 'browserify']
+                tasks: ['clean', 'browserify:dev']
             }
 		}
 	});
@@ -137,5 +138,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-babel');
 
 	grunt.registerTask('default', ['sass:dev', 'clean', 'browserify:dev', 'watch']);
-    grunt.registerTask('build', ['sass', 'cssmin', 'clean', 'browserify', 'uglify', 'watch']);
+    grunt.registerTask('build', ['sass:prod', 'cssmin', 'clean', 'browserify:prod', 'uglify', 'watch']);
 };

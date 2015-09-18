@@ -1,15 +1,17 @@
-var sampleModule = require('../../js/modules/View');
+let View = require('../../js/modules/View.js');
 
 
-describe('Sample Module', function() {
+describe('View', function() {
     beforeEach(function() {
-       loadFixtures('sampleModule.fixture.html');
+       loadFixtures('View.fixture.html');
     });
 
 
     it('Should print a message in console', function() {
+        let view = new View({});
+
         spyOn(window.console, 'log');
-        sampleModule.init();
+        view.render();
         expect(window.console.log).toHaveBeenCalled();
     });
 });
