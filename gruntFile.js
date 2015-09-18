@@ -18,27 +18,92 @@ module.exports = function(grunt) {
 		  }
 		},
 
-		/* Compile SASS files */
+
 		sass: {
-			dist: {
+			dev: {
+                options: {
+                    style: 'expanded',
+                    sourcemap: 'auto'
+                },
 				files: [{
 					expand: true,
 					cwd: 'scss',
-					src: ['*.scss'],
-					dest: 'css',
+					src: ['style.scss'],
+					dest: 'static/css',
 					ext: '.css'
 				}]
+			},
+
+            prod: {
+                options: {
+                    style: 'compressed',
+                    sourcemap: 'none'
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'scss',
+                    src: ['style.scss'],
+                    dest: 'static/css',
+                    ext: '.css'
+                }]
+            }
+		},
+
+
+        browserify: {
+            dev: {
+                options: {
+                    // Add source maps
+                    transform: [["babelify", { "stage": 0 }]],
+                    browserifyOptions: {
+                        debug: true
+                    }
+                },
+                src: [
+                    'js/es5/**/*.js'
+                ],
+                dest: 'static/js/build.js'
+            },
+            prod: {
+                options: {
+                    browserifyOptions: {
+                        debug: false
+                    }
+                },
+                src: '<%= browserify.dev.src %>',
+                dest:'static/js/build.js'
+            }
+        },
+
+        clean: ["js/es5/"],
+
+        babel: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'js',
+                    src: ['modules/*.js', 'main.js'],
+                    dest: 'js/es5',
+                    ext: '.js'
+                }]
+            }
+        },
+
+
+		uglify: {
+			js: {
+                options: {
+                    sourceMap: true
+                },
+				files: {
+					'static/js/build.min.js': ['<%= browserify.prod.dest %>']
+				}
 			}
 		},
 
-		// Uglify js file
-		uglify: {
-			js: {
-				files: {
-					'js/main.min.js': ['js/main.js %>']
-				}
-			},
-		},
 
 		cssmin: {
 			css: {
@@ -49,18 +114,28 @@ module.exports = function(grunt) {
 		},
 
 
-		// Watch
 		watch: {
-		  	files: ['js/**/*.js', 'scss/**/*.scss'],
-		  	tasks: ['sass', 'cssmin', 'jshint', 'uglify']
+            css: {
+                files: ['scss/**/*.scss', 'gruntFile.js'],
+                tasks: ['sass']
+            },
+
+            js: {
+                files: ['js/main.js', 'js/modules/*.js', 'gruntFile.js'],
+                tasks: ['clean', 'browserify']
+            }
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-babel');
 
-	grunt.registerTask('default', ['sass', 'cssmin', 'jshint', 'uglify', 'watch']);
+	grunt.registerTask('default', ['sass:dev', 'clean', 'browserify:dev', 'watch']);
+    grunt.registerTask('build', ['sass', 'cssmin', 'clean', 'browserify', 'uglify', 'watch']);
 };

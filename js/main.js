@@ -1,5 +1,7 @@
-(function() {
-	'use strict';
+"use strict";
 
-		//Simple javascript goes here if needed;
-})();
+var View = require('./modules/View');
+
+var view = new View({});
+view.render();
+

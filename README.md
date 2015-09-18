@@ -1,7 +1,7 @@
 scaffolding-simple
 ==================
 
-Scaffolding for a simple static website with minimal javascript and one sass file.
+Scaffolding for new web projects
 
 1. clone repo
 2. npm install

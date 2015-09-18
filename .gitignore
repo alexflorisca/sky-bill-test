@@ -1,3 +1,12 @@
+# Project files #
+###################
+node_modules
+bower_components
+vendor
+.sass-cache
+/static/
+/js/modules/es5/
+
 
 # Compiled source #
 ###################
