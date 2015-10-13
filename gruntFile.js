@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                     }
                 },
                 src: [
-                    'js/**/*.js'
+                    'js/main.js'
                 ],
                 dest: 'static/js/build.js'
             },
@@ -73,23 +73,6 @@ module.exports = function(grunt) {
                 },
                 src: '<%= browserify.dev.src %>',
                 dest:'static/js/build.js'
-            }
-        },
-
-        clean: ["js/es5/"],
-
-        babel: {
-            options: {
-                sourceMap: true
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'js',
-                    src: ['modules/*.js', 'main.js'],
-                    dest: 'js/es5',
-                    ext: '.js'
-                }]
             }
         },
 
@@ -137,6 +120,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-babel');
 
-	grunt.registerTask('default', ['sass:dev', 'clean', 'browserify:dev', 'watch']);
-    grunt.registerTask('build', ['sass:prod', 'cssmin', 'clean', 'browserify:prod', 'uglify', 'watch']);
+	grunt.registerTask('default', ['sass:dev', 'browserify:dev', 'watch']);
+    grunt.registerTask('build', ['sass:prod', 'cssmin', 'browserify:prod', 'uglify', 'watch']);
 };
