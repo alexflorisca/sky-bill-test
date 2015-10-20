@@ -51,6 +51,9 @@ module.exports = function(grunt) {
 
 
         browserify: {
+            options: {
+                extension: ["jsx"]
+            },
             dev: {
                 options: {
                     // Add source maps
@@ -60,7 +63,7 @@ module.exports = function(grunt) {
                     }
                 },
                 src: [
-                    'js/main.js'
+                    'js/app.js'
                 ],
                 dest: 'static/js/build.js'
             },
@@ -105,8 +108,8 @@ module.exports = function(grunt) {
             },
 
             js: {
-                files: ['js/main.js', 'js/modules/*.js', 'gruntFile.js'],
-                tasks: ['clean', 'browserify:dev']
+                files: ['js/app.js', 'js/**/*.js*', 'gruntFile.js'],
+                tasks: ['browserify:dev']
             }
 		}
 	});

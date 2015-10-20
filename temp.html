@@ -1,0 +1,88 @@
+<div class="Bill">
+    <h1>Your Sky Bill for {{period.from}} to {{period.to}}</h1>
+    <h2>A total of {{total}} is due on {{due}}</h2>
+
+    <h2>Packages</h2>
+    <table class="Packages">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{package.type}}</td>
+            <td>{{package.name}}</td>
+            <td>{{package.cost}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <td colspan="2">TOTAL</td>
+        <td>{{packages.total}}</td>
+        </tfoot>
+    </table>
+
+    <h2>Call Charges</h2>
+    <table class="CallCharges">
+        <thead>
+        <tr>
+            <th>Called</th>
+            <th>Duration</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{call.number}}</td>
+            <td>{{call.duration}}</td>
+            <td>{{call.cost}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2">TOTAL</td>
+            <td>{{calls.total}}</td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <h2>Sky Store</h2>
+    <table class="SkyStore">
+        <thead>
+        <tr>
+            <th>Service</th>
+            <th>Title</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{Service}}</td>
+            <td>{{Title}}</td>
+            <td>{{Cost}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2">TOTAL</td>
+            <td>{{skystore.total}}</td>
+        </tr>
+        </tfoot>
+    </table>
+
+
+    <table class="Total">
+        <tbody>
+        <tr>
+            <th><h2>TOTAL for this month</h2></th>
+            <td><h2>{{total}}</h2></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <footer>
+        <small>This bill was generated on the {{generated}}</small>
+    </footer>
+</div>
