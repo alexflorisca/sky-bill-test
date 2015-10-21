@@ -9,7 +9,7 @@ class Total extends React.Component {
                 <tbody>
                     <tr>
                         <th><h2>TOTAL for this month</h2></th>
-                        <td><h2>{this.props.total}</h2></td>
+                        <td className="Subtotal"><h2>£{this.props.total}</h2></td>
                     </tr>
                 </tbody>
             </table>

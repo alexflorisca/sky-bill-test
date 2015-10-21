@@ -12,7 +12,7 @@ class Subscriptions extends React.Component {
         });
 
         return (
-            <div className="Subscriptions">
+            <div className="Subscriptions BillTable">
                 <h2>Subscriptions</h2>
                 <table>
                     <thead>
@@ -25,10 +25,10 @@ class Subscriptions extends React.Component {
                     <tbody>
                         {subscriptions}
                     </tbody>
-                    <tfoot>
+                    <tfoot className="Subtotal">
                         <tr>
                             <td colSpan="2">TOTAL</td>
-                            <td>{this.props.package.total}</td>
+                            <td>£{this.props.package.total}</td>
                         </tr>
                     </tfoot>
                 </table>

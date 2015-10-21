@@ -13,7 +13,7 @@ class CallCharges extends React.Component {
         });
 
         return (
-            <div className="CallCharges">
+            <div className="CallCharges BillTable">
                 <h2>Call Charges</h2>
                 <table>
                     <thead>
@@ -26,10 +26,10 @@ class CallCharges extends React.Component {
                     <tbody>
                         {calls}
                     </tbody>
-                    <tfoot>
+                    <tfoot className="Subtotal">
                         <tr>
                             <td colSpan="2">TOTAL</td>
-                            <td>{this.props.callCharges.total}</td>
+                            <td>£{this.props.callCharges.total}</td>
                         </tr>
                     </tfoot>
                 </table>

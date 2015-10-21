@@ -43,6 +43,6 @@ describe('Subscriptions', function() {
 
     it("Should display the total", () => {
         let total =  this.renderedDOM().querySelectorAll("tfoot td")[1];
-        expect(total.innerText).toEqual("71.4");
+        expect(total.innerText).toEqual("£71.4");
     });
 });

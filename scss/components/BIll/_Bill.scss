@@ -1,0 +1,10 @@
+.Bill {
+  margin: 0 10px;
+  max-width: 750px;
+  @include breakpoint($bp-lap) {
+    margin: 0 20px;
+  }
+  @include breakpoint($bp-desk) {
+    margin: 0 auto;
+  }
+}

@@ -17,6 +17,6 @@ describe('Total', function() {
 
 
         expect(totalContainer).toHaveClass("Total");
-        expect(total.innerText).toEqual("12.95");
+        expect(total.innerText).toEqual("£12.95");
     });
 });

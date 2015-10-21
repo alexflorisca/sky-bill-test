@@ -8,7 +8,7 @@ class SubscriptionsItem extends React.Component {
             <tr>
                 <td>{this.props.subscription.type}</td>
                 <td>{this.props.subscription.name}</td>
-                <td>{this.props.subscription.cost}</td>
+                <td>£{this.props.subscription.cost}</td>
             </tr>
         )
     }

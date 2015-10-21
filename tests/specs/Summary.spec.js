@@ -25,8 +25,8 @@ describe('Summary', function() {
             summaryLine2 = this.renderedDOM().querySelector("h2");
 
 
-        expect(summaryLine1.innerText).toEqual("Your sky bill for 2015-01-26 to 2015-02-25");
-        expect(summaryLine2.innerText).toEqual("A total of 136.03 is due on 2015-01-25");
+        expect(summaryLine1.innerText).toEqual("Your sky bill for 26 January 2015 to 25 February 2015");
+        expect(summaryLine2.innerText).toEqual("A total of £136.03 is due on 25 January 2015");
     });
 
 

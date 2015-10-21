@@ -18,7 +18,7 @@ class SkyStore extends React.Component {
         });
 
         return (
-            <div className="SkyStore">
+            <div className="SkyStore BillTable">
                 <h2>Sky Store</h2>
                 <table>
                     <thead>
@@ -32,10 +32,10 @@ class SkyStore extends React.Component {
                         {rentals}
                         {buyAndKeep}
                     </tbody>
-                    <tfoot>
+                    <tfoot className="Subtotal">
                         <tr>
                             <td colSpan="2">TOTAL</td>
-                            <td>{this.props.skyStore.total}</td>
+                            <td>£{this.props.skyStore.total}</td>
                         </tr>
                     </tfoot>
                 </table>

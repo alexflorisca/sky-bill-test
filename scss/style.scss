@@ -1,1 +1,11 @@
-@import "components/Base";
+@import "../bower_components/susy/sass/susy",
+        "../bower_components/breakpoint-sass/stylesheets/breakpoint",
+
+        "variables",
+        "susy-config",
+        "Base",
+        "Tables",
+
+        "components/Bill/Bill",
+        "components/Bill/Total",
+        "components/Bill/Footer";

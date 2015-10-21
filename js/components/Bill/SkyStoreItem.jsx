@@ -8,7 +8,7 @@ class SkyStoreItem extends React.Component {
             <tr>
                 <td>{this.props.service}</td>
                 <td>{this.props.item.title}</td>
-                <td>{this.props.item.cost}</td>
+                <td>£{this.props.item.cost}</td>
             </tr>
         );
     }

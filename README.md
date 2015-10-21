@@ -1,9 +1,5 @@
-scaffolding-simple
-==================
+# Bill App by Alex Florisca
 
-Scaffolding for new web projects
+To run, npm install && bower install & grunt
 
-1. clone repo
-2. npm install
-3. bower install
-3. grunt
+To run tests, npm test or npm run test
