@@ -3,7 +3,6 @@
 let React =     require('react/addons'),
     Summary =   require('../../js/components/Bill/Summary.jsx');
 
-
 describe('Summary', function() {
     beforeEach(() => {
         this.TestUtils = React.addons.TestUtils;
